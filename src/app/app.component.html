@@ -1,0 +1,14 @@
+<h1 style="text-align:center;color:yellow">{{name | uppercase}}</h1>
+<form class="form-inline">
+  <div class="form-group" class="col-md-2">
+    <input type="search" class="form-control" placeholder="Enter song name" #search>
+  </div>
+  <button type="button" class="btn btn-success" (click)="doSearch(search.value)">search</button>
+</form>
+<hr>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let track of results | async">
+    <img src="{{track.thumbnail}}">
+    <a target="_blank" href="{{track.link}}">{{ track.track }}</a>
+  </li>
+</ul>
